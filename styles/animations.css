@@ -9,3 +9,94 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+/* Контур остаётся статичным */
+  .heart .contour {
+    fill: var(--contour-color);
+  }
+  
+  /* Базовые стили для элементов, которые будут анимироваться */
+  .heart .core,
+  .heart .main-body {
+    fill: transparent; /* Исходное состояние: прозрачные */
+    transition: fill 0.3s ease;
+  }
+  
+  /* При наведении на иконку (.like-icon) */
+  .like-icon:hover .heart .core {
+    fill: var(--contour-color);
+    transition-delay: 0s;
+  }
+  
+  .like-icon:hover .heart .main-body {
+    fill: var(--contour-color);
+    transition-delay: 0.05s;
+  }
+  
+  /* При уходе курсора (сброс hover) */
+  .like-icon:not(:hover) .heart .core,
+  .like-icon:not(:hover) .heart .main-body {
+    fill: transparent;
+    transition-delay: 0s;
+  }
+
+  /* При зажатии кнопки (state :active):
+   Сердцевина и основное тело заливаются красным с теми же переходами, что и hover. */
+  .like-icon:active .heart .core {
+    fill: var(--main-color);
+    transition: fill 0.3s ease 0s;
+  }
+  
+  .like-icon:active .heart .main-body {
+    fill: var(--main-color);
+    transition: fill 0.3s ease 0.05s;
+  }
+  
+  /* Контур не перекрашивается – остаётся, как задано в базовых стилях */
+  
+  /* Эффект при наличии класса is-liked */
+  .like-icon.is-liked .heart .core {
+    fill: var(--main-color);
+    transition: fill 0.3s ease 0s;
+  }
+  
+  .like-icon.is-liked .heart .main-body {
+    fill: var(--main-color);
+    transition: fill 0.3s ease 0.05s;
+  }
+  
+  /* Контур также заливается красным, но с задержкой – эффект постепенного появления */
+  .like-icon.is-liked .heart .contour {
+    fill: var(--main-color);
+    transition: fill 0.3s ease 0.1s;
+  }
+  
+  /* Эффект масштабирования сердца при клике */
+  .like-icon.is-liked .heart {
+    animation: scalePulse 0.3s ease;
+  }
+  
+  @keyframes scalePulse {
+    0% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.1); 
+    }
+    100% { 
+        transform: scale(1); 
+    }
+  }
+  
+  /* Искры становятся видимыми, а затем исчезают – меняем opacity */
+  .like-icon.is-liked .sparks {
+    opacity: 1;
+    transition: opacity 0.3s ease 0.2s;
+  }
+  
+  /* В базовом состоянии искры скрыты */
+  .like-icon:not(.is-liked) .sparks {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
