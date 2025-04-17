@@ -21,7 +21,7 @@
 
 .heart .core {
   fill: transparent;
-  transition: fill 0.1s linear;
+  transition: fill 0.3s ease; 
 }
 
 .heart .main-body {
@@ -32,7 +32,7 @@
 
 .heart .contour {
   fill: var(--contour-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.1s linear;
 }
 
 /* Состояние hover — когда курсор наведен на иконку */

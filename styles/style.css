@@ -97,7 +97,7 @@ border: 2px solid black;
   font-size: 14px;
   text-transform: uppercase;
   color: #000;
-  opacity: 0.9;
+  opacity: 0.5;
   text-shadow:
     -1px -1px 0 var(--stroke-color),
      1px -1px 0 var(--stroke-color),
