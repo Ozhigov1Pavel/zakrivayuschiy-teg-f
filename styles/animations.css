@@ -13,7 +13,6 @@
 /* Базовое состояние (выключенное): прозрачная заливка с заданными задержками */
 .sparks {
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .heart {
@@ -22,8 +21,7 @@
 
 .heart .core {
   fill: transparent;
-  transition: fill 0.3s ease;
-  transition-delay: 0.03s;
+  transition: fill 0.1s linear;
 }
 
 .heart .main-body {
@@ -76,7 +74,7 @@
 .like-icon.is-liked .heart .contour {
   fill: var(--main-color);
   transition: fill 0.3s ease;
-  transition-delay: 0.1s;
+  transition-delay: 0.06s;
 }
 
 /* Анимация масштабирования сердца при клике */
@@ -114,5 +112,5 @@
 
 /* Применяем анимацию к искрам в состоянии is-liked */
 .like-icon.is-liked .sparks {
-  animation: sparkFlash 0.3s ease-in 0.3s forwards;
+  animation: sparkFlash 0.3s ease-in 0.3s;
 }
